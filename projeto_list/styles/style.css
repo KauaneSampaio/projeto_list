@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: #eef1f5;
+    color: #111827;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.app {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 720px;
+    background: white;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar {
+    background: #f8fafc;
+    padding: 45px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 50px;
+}
+
+.logo i {
+    font-size: 27px;
+    color: #2563eb;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    border: none;
+    background: transparent;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #475569;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #eaf2ff;
+}
+
+.menu-item.ativo {
+    background: #dbeafe;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.menu-item i {
+    width: 20px;
+    font-size: 18px;
+}
+
+.frase {
+    margin-top: auto;
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.conteudo {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.topo h1 {
+    font-size: 38px;
+    letter-spacing: -1px;
+    margin-bottom: 7px;
+}
+
+.topo p {
+    color: #64748b;
+    font-size: 17px;
+}
+
+#dataAtual {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.nova-tarefa {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.nova-tarefa input {
+    flex: 1;
+    height: 56px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 0 18px;
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.nova-tarefa input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.nova-tarefa button {
+    min-width: 140px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nova-tarefa button:hover {
+    background: #1d4ed8;
+}
+
+.filtros {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+}
+
+.filtro {
+    border: none;
+    background: transparent;
+    padding: 9px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    color: #475569;
+    transition: 0.2s;
+}
+
+.filtro:hover {
+    background: #f1f5f9;
+}
+
+.filtro.ativo {
+    background: #dbeafe;
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+.lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tarefa {
+    width: 100%;
+    min-height: 60px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.2s;
+}
+
+.tarefa:hover {
+    border-color: #bfdbfe;
+    background: #f8fbff;
+}
+
+.check {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #94a3b8;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    transition: 0.2s;
+}
+
+.tarefa.concluida .check {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+.tarefa.concluida .check::after {
+    content: "✓";
+}
+
+.texto-tarefa {
+    flex: 1;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.tarefa.concluida .texto-tarefa {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.excluir {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.excluir:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.vazio {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+}
+
+.vazio i {
+    font-size: 45px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.rodape {
+    margin-top: auto;
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    color: #475569;
+    font-size: 14px;
+}
+
+@media (max-width: 750px) {
+
+    body {
+        padding: 0;
+        background: white;
+        align-items: flex-start;
+    }
+
+    .app {
+        min-height: 100vh;
+        display: block;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .conteudo {
+        padding: 30px 20px 25px;
+        min-height: 100vh;
+    }
+
+    .topo {
+        margin-bottom: 30px;
+    }
+
+    .topo h1 {
+        font-size: 28px;
+    }
+
+    .topo p {
+        font-size: 15px;
+    }
+
+    #dataAtual {
+        display: none;
+    }
+
+    .nova-tarefa {
+        gap: 10px;
+    }
+
+    .nova-tarefa input {
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .nova-tarefa button {
+        min-width: 95px;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+
+    .filtros {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+    }
+
+    .filtro {
+        padding: 10px 5px;
+        font-size: 13px;
+    }
+
+    .tarefa {
+        padding: 12px;
+        min-height: 58px;
+    }
+
+    .texto-tarefa {
+        font-size: 15px;
+    }
+
+    .rodape {
+        margin-top: 30px;
+        gap: 20px;
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .nova-tarefa {
+        flex-direction: column;
+    }
+
+    .nova-tarefa button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+}

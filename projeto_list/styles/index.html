@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-square-check"></i>
+                <span>Minhas Tarefas</span>
+            </div>
+
+            <nav>
+                <button class="menu-item ativo" data-filtro="todas">
+                    <i class="fa-solid fa-house"></i>
+                    Todas
+                </button>
+
+                <button class="menu-item" data-filtro="pendentes">
+                    <i class="fa-regular fa-clock"></i>
+                    Pendentes
+                </button>
+
+                <button class="menu-item" data-filtro="concluidas">
+                    <i class="fa-regular fa-circle-check"></i>
+                    Concluídas
+                </button>
+            </nav>
+
+        </aside>
+
+        <section class="conteudo">
+
+            <header class="topo">
+                <div>
+                    <h1>Minhas Tarefas</h1>
+                    <p>Organize seu dia, do seu jeito.</p>
+                </div>
+
+                <span id="dataAtual"></span>
+            </header>
+
+            <div class="nova-tarefa">
+
+                <input
+                    type="text"
+                    id="inputTarefa"
+                    placeholder="Digite uma nova tarefa..."
+                >
+
+                <button id="btnAdicionar">
+                    Adicionar
+                </button>
+
+            </div>
+
+            <div class="filtros">
+
+                <button class="filtro ativo" data-filtro="todas">
+                    Todas
+                    <span id="contadorTodas">0</span>
+                </button>
+
+                <button class="filtro" data-filtro="pendentes">
+                    Pendentes
+                    <span id="contadorPendentes">0</span>
+                </button>
+
+                <button class="filtro" data-filtro="concluidas">
+                    Concluídas
+                    <span id="contadorConcluidas">0</span>
+                </button>
+
+            </div>
+
+            <div id="listaTarefas" class="lista-tarefas"></div>
+
+            <footer class="rodape">
+
+                <span id="progresso">
+                    0 de 0 tarefas concluídas
+                </span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
